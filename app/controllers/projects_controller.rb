@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
+
+
   def index
   	@projects = Project.all
-  	end
   end
 
   def show
@@ -37,6 +38,7 @@ class ProjectsController < ApplicationController
   		redirect_to project_path(@project)
   	else
   		render :edit
+  	end
   end
 
   private
@@ -44,4 +46,5 @@ class ProjectsController < ApplicationController
   def project_params
   	params.require(:project).permit(:title, :description, :goal, :start_date, :end_date)
   end
+
 end
