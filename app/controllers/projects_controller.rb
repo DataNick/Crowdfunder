@@ -1,14 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-  	@projects = if params[:search]
-  		Project.where("name LIKE ?", "%#{params[:search]}%")
-  	else
-  		Project.order('products.created_at DESC').page(params[:page])
-  	end
-  	@projects = @projects.page(params[:page])
-
-  	respond_to do |format|
-  		format.html
+  	@projects = Project.all
   	end
   end
 
@@ -22,6 +14,29 @@ class ProjectsController < ApplicationController
 
   def edit
   	@project = Project.find(params[:id])
+  end
+
+  def create
+  	@project = Project.new(project_params)
+  	if @project.save
+  		redirect_to projects_url
+  	else
+  		render :new
+  	end
+  end
+
+  def destroy
+  	@project = Project.find(params[:id])
+  	@project.destroy
+  	redirect_to projects_path
+  end
+
+  def update
+  	@project = Project.find(params[:id])
+  	if @project.update_attributes(project_params)
+  		redirect_to project_path(@project)
+  	else
+  		render :edit
   end
 
   private
