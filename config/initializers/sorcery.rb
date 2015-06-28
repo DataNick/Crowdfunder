@@ -6,13 +6,14 @@ Rails.application.config.sorcery.submodules = [:remember_me, :reset_password]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
+ 
+
   # -- core --
   # What controller action to call for non-authenticated users. You can also
   # override the 'not_authenticated' method of course.
   # Default: `:not_authenticated`
   #
   # config.not_authenticated_action =
-
 
   # When a non logged in user tries to enter a page that requires login, save
   # the URL he wanted to reach, and send him there after login, using 'redirect_back_or_to'.
@@ -172,12 +173,14 @@ Rails.application.config.sorcery.configure do |config|
   # config.salesforce.user_info_mapping = {:email => "email"}
 
   # --- user config ---
-  config.user_config do |user|
+  config.user_config do |user|     
+    
+    
     # -- core --
     # specify username attributes, for example: [:username, :email].
     # Default: `[:email]`
     #
-    # user.username_attribute_names =
+    # user.username_attribute_names = :email
 
 
     # change *virtual* password attribute, the one which is used until an encrypted one is generated.
@@ -282,7 +285,7 @@ Rails.application.config.sorcery.configure do |config|
     # your mailer class. Required.
     # Default: `nil`
     #
-    # user.user_activation_mailer =
+    # user.user_activation_mailer = UserMailer
 
 
     # when true sorcery will not automatically
@@ -333,13 +336,13 @@ Rails.application.config.sorcery.configure do |config|
     # mailer class. Needed.
     # Default: `nil`
     #
-    # user.reset_password_mailer =
+    user.reset_password_mailer = UserMailer
 
 
     # reset password email method on your mailer class.
     # Default: `:reset_password_email`
     #
-    # user.reset_password_email_method_name =
+    user.reset_password_email_method_name = :reset_password_email
 
 
     # when true sorcery will not automatically
