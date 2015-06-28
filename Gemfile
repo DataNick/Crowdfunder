@@ -35,7 +35,7 @@ gem "sorcery"
 gem 'foundation-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'carrierwave'
 gem 'pry-rails', :group => :development
 
 group :development, :test do
