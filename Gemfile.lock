@@ -52,6 +52,7 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    cocoon (1.2.6)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -186,6 +187,7 @@ DEPENDENCIES
   better_errors
   byebug
   carrierwave
+  cocoon
   coffee-rails (~> 4.1.0)
   foundation-rails
   jbuilder (~> 2.0)

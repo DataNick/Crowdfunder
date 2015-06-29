@@ -36,6 +36,7 @@ gem 'foundation-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'carrierwave'
+gem "cocoon"
 gem 'pry-rails', :group => :development
 
 group :development, :test do
